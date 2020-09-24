@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-void main(void)
+void incremet(char arg[])
 {
-    puts("<< Adreess in hexadecimal >>");
+    puts(arg);
     __int8_t a = 5, *ptr_a = &a;
     printf("%X + 1 sizeof(int8)   is  1 byte  -> %X \n", ptr_a, ptr_a + 1);
     __int16_t b = 5, *ptr_b = &b;
@@ -13,4 +13,34 @@ void main(void)
     printf("%X + 1 sizeof(int64)  is  8 bytes -> %X \n", ptr_d, ptr_d + 1);
     __int128_t e = 5, *ptr_e = &e;
     printf("%X + 1 sizeof(int128) is 16 bytes -> %X \n", ptr_e, ptr_e + 1);
+}
+
+void decrement(char arg[])
+{
+
+    puts(arg);
+    char str[100], *ptr = NULL;
+
+    puts("Write one string: ");
+    gets(str);
+    ptr = &str;
+
+    puts("\n<< String in order >>");
+    while (*ptr != '\0')
+    {
+        putchar(*ptr++);
+    }
+
+    puts("\n<< String in reverse >>");
+    while (ptr >= &str)
+    {
+        putchar(*ptr--);
+    }
+}
+
+void main(void)
+{
+    incremet("\n<< Poiter Increment Example with Address in Hexadecimal >>");
+    decrement("\n<< Poiter Decrement Example with String >>");
+    puts("");
 }
